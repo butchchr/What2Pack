@@ -7,6 +7,10 @@ namespace What2Pack.Api.Modules
     {
         protected override void Load(ContainerBuilder builder)
         {
+            builder.RegisterType<ForecastService>()
+                .As<IForecastService>()
+                .SingleInstance();
+
             builder.RegisterType<LocationService>()
                 .As<ILocationService>()
                 .SingleInstance();
