@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "What2Pack", "What2Pack\What2Pack.csproj", "{489F349B-6D58-4462-9C52-BCBFDEEFB6F2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "What2Pack.Api", "What2Pack\What2Pack.Api.csproj", "{489F349B-6D58-4462-9C52-BCBFDEEFB6F2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "What2Pack.Api.Tests", "What2Pack.Api.Tests\What2Pack.Api.Tests.csproj", "{BEABCC9A-F0E0-4505-867C-D878E7D97EC6}"
 EndProject
