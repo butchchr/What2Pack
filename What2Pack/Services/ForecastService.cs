@@ -18,7 +18,15 @@ namespace What2Pack.Api.Services
 
         public async Task<ServiceResult<WeatherResponse>> GetWeather(WeatherRequest weatherRequest)
         {
-            throw new NotImplementedException();
+            var placeholder = new WeatherResponse
+            {
+                Location = "Copper Harbor",
+                Temperature = 2,
+                WeatherDescription = "Sunny",
+                Precip =0
+            };
+
+            return new ServiceResult<WeatherResponse>().SetValue(placeholder);
         }
     }
 }

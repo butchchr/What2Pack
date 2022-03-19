@@ -8,5 +8,12 @@
     {
         public bool IsError { get; set; }
         public string? ErrorMessage { get; set; }
+        public T? Value { get; set; }
+        public ServiceResult<T> SetValue(T value)
+        {
+            Value = value;
+  
+            return this;
+        }
     }
 }

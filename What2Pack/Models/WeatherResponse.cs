@@ -7,7 +7,7 @@
     {
         public string Location { get; set; }
         public int Temperature { get; set; }
-        public string WeatherDescriptions { get; set; } //TODO: convert to list
+        public string WeatherDescription { get; set; } //TODO: convert to list
         public int Precip { get; set; }
     }
 }
