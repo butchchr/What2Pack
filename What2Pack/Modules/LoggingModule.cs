@@ -21,7 +21,9 @@ namespace What2Pack.Api.Modules
         /// <returns></returns>
         private LoggerConfiguration ConfigureLogger(IComponentContext context)
         {
-            return new LoggerConfiguration();
+            return new LoggerConfiguration()
+                .MinimumLevel.Debug()
+                .WriteTo.Console();
         }
 
         private Serilog.ILogger CreateLogger(IComponentContext context)

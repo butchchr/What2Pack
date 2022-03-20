@@ -15,5 +15,17 @@
   
             return this;
         }
+        public ServiceResult<T> AddError()
+        {
+            IsError = true;
+
+            return this;
+        }
+        public ServiceResult<T> AddMessage(string message)
+        {
+            ErrorMessage = message;
+
+            return this;
+        }
     }
 }

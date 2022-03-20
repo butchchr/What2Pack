@@ -14,6 +14,14 @@ namespace What2Pack.Api.Modules
             builder.RegisterType<LocationService>()
                 .As<ILocationService>()
                 .SingleInstance();
+
+            builder.RegisterType<ValidationService>()
+                .As<IValidationService>()
+                .SingleInstance();
+
+            builder.RegisterType<WeatherstackService>()
+                .As<IWeatherstackService>()
+                .SingleInstance();
         }
     }
 }
