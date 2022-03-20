@@ -4,7 +4,7 @@ namespace What2Pack.Api.Services
 {
     public interface IValidationService
     {
-        ServiceResult<WeatherRequest> ValidateGetWeatherRequest(string weatherId, string startDate, string duration, string location);
+        ServiceResult<WeatherRequest> ValidateGetWeatherRequest(Guid weatherId, string startDate, string duration, string location);
     }
 
     public class ValidationService : IValidationService
@@ -19,7 +19,7 @@ namespace What2Pack.Api.Services
         // As basic as a validator can get massive assumptions on the data,
         // TODO make actual validation rules based around a "Trip" definition and API limitations
         // Death march though the validation and only fail on missing location
-        public ServiceResult<WeatherRequest> ValidateGetWeatherRequest(string weatherId, string startDate, string duration, string location)
+        public ServiceResult<WeatherRequest> ValidateGetWeatherRequest(Guid weatherId, string startDate, string duration, string location)
         {
             var logContext = new { weatherId, startDate, duration, location };
             Log.Information("Received request to validate weather request for {logContext}", logContext);

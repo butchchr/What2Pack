@@ -9,11 +9,12 @@ namespace What2Pack.Api.Tests
     [Trait("Category", "Unit")]
     public class ValidationServiceTests
     {
+
         private static WeatherRequest GetWeatherRequest()
         {
             return new WeatherRequest
             {
-                RequestId = "123456",
+                RequestId = Guid.NewGuid(),
                 TripStartDate = DateTime.Now.Date,
                 TripDuration = 3,
                 Location = "Copper Harbor"
@@ -37,22 +38,22 @@ namespace What2Pack.Api.Tests
         }
 
         [Theory]
-        [InlineData("123456", "string", "string", "Copper Harbor")]
-        [InlineData("123456", " ", " ", "Copper Harbor")]
-        [InlineData("123456", "1", "potato", "Copper Harbor")]
-        [InlineData("123456", "potato", "1", "Copper Harbor")]
-        [InlineData("123456", "null", "null", "Copper Harbor")]
-        [InlineData("123456", null, null, "Copper Harbor")]
-        public void ValidateGetWeatherRequest_DeathMarches_GivenBadDataOtherThanLocation(string a, string b, string c, string d)
+        
+        [InlineData("string", "string", "Copper Harbor")]
+        [InlineData(" ", " ", "Copper Harbor")]
+        [InlineData("1", "potato", "Copper Harbor")]
+        [InlineData("potato", "1", "Copper Harbor")]
+        [InlineData("null", "null", "Copper Harbor")]
+        [InlineData(null, null, "Copper Harbor")]
+        public void ValidateGetWeatherRequest_DeathMarches_GivenBadDataOtherThanLocation(string b, string c, string d)
         {
             var logger = Substitute.For<Serilog.ILogger>();
             var sut = new ValidationService(logger);
             var weatherRequest = GetWeatherRequest();
 
-            var result = sut.ValidateGetWeatherRequest(a, b, c, d);
+            var result = sut.ValidateGetWeatherRequest(Guid.NewGuid(), b, c, d);
 
             Assert.IsType<WeatherRequest>(result.Value);
-            Assert.Equal(weatherRequest.RequestId, result.Value.RequestId);
             Assert.Equal(weatherRequest.TripStartDate, result.Value.TripStartDate);
             Assert.Equal(1, result.Value.TripDuration);
             Assert.Equal(weatherRequest.Location, result.Value.Location);

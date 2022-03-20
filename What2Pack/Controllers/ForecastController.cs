@@ -26,13 +26,11 @@ namespace What2Pack.Api.Controllers
         [Route("GetWeather/{startDate}/{duration}/{location}")]
         public async Task<IActionResult> GetWeatherForTrip([FromRoute] string startDate, string duration, string location)
         {
-            var weatherId = new Guid().ToString();
+            var weatherId = Guid.NewGuid();
             var logContext = new { weatherId, startDate, duration, location };
 
-            Log.Information("Received request to get weather for trip {logCOntext}", logContext);
+            Log.Information("Received request to get weather for trip {logContext}", logContext);
 
-            //Validate Request
-            //TODO create actual validation
             Log.Verbose("Validating weather request");
             var weatherRequest = ValidationService.ValidateGetWeatherRequest(weatherId, startDate, duration, location);
 
@@ -52,7 +50,7 @@ namespace What2Pack.Api.Controllers
 
             return Ok(weatherResult);
 
-            //Return
+            
         }
     }
 }
