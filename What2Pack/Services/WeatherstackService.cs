@@ -24,15 +24,10 @@ namespace What2Pack.Api.Services
             // Another endpoint option would be to take a start and end date
 
 
-            var placeholder = new WeatherResponse
-            {
-                Location = "Copper Harbor",
-                Temperature = 2,
-                WeatherDescription = "Sunny",
-                Precip = 0
-            };
+            // Query from postman soooooo not encoded.  I am shocked it worked. 
+            // {{BaseUrl}}/historical?access_key={{AccessKey}}&query=Copper Harbor&historical_date_start=2021-06-05&historical_date_end=2021-06-11&units=f
 
-            return new ServiceResult<WeatherResponse>().SetValue(placeholder);
+            return new ServiceResult<WeatherResponse>();
         }
     }
 }
