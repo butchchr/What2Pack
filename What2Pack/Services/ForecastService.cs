@@ -18,6 +18,8 @@ namespace What2Pack.Api.Services
 
         public async Task<ServiceResult<WeatherResponse>> GetWeather(WeatherRequest weatherRequest)
         {
+            Log.Verbose("Received request to get weather for {location}", weatherRequest.Location);
+
             var placeholder = new WeatherResponse
             {
                 Location = "Copper Harbor",

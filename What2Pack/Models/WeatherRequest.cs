@@ -2,7 +2,7 @@
 {
     public class WeatherRequest
     {
-        public DateTime TripStartDate { get; set; }
+        public string TripStartDate { get; set; }
         public int TripDuration { get; set; }
         public string Location { get; set; }
     }
