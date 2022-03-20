@@ -62,7 +62,7 @@ namespace What2Pack.Api.Services
             }
 
             Log.Information("Invalid start date, assigning datetime.now");
-            return DateTime.Now;
+            return DateTime.Now.Date;
         }
 
         public int ValidateTripDuration(string duration)
